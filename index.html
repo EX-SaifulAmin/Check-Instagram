@@ -5,16 +5,28 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>   
     <link rel="stylesheet" href="style.css">
   <title>Document</title>
 </head>
 <body>
   <nav class="nav">
-    <h1>Ini navbar</h1>
+    <h1>Check moots</h1>
     <h1>ini logo</h1>
   </nav>
+  <div class="help">
+    <h3>Cara pakenya</h3>
+    <ol>
+      <li>Pertama kalian harus export informasi akun ig kalian, klik jika belum tahu caranya <a href="">cara export data</a><span> Note : </span> <ul><li>pastikan bagian followers dan following di checklist</li><li>export dalam bentuk .json bukan .html</li></ul></li>
+      <li>Masukan file .zip kebagian kolom input file</li>
+      <li>Tabel yang tertera itu menampilkan jumlah orang,username,dan tanggal follow</li>
+    
+    </ol>
+    <p>follow ig @gweh_jamin</p>
+  </div>
   <div class="area">
-  <label for="inputFile" class="input">masukan file .zip</label>
+  <ion-icon name="file-tray" id="filetray"></ion-icon>
+  <label for="inputFile" class="input"><span>Klik</span> untuk memasukan file .zip</label>
   <input type="file" id="inputFile" style="display:none;"></div>
   <table border="1">
   <thead>
