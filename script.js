@@ -1,3 +1,7 @@
+
+// function createTabel() {
+//   console.log('mencet')
+// }
 const fileInput = document.getElementById("inputFile");
 let output = document.getElementById('output');
 fileInput.addEventListener("change", async function(){

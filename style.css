@@ -111,6 +111,23 @@ body{
   border-bottom:2px solid #333;
   font-weight:600;
 }
+#btn {
+  border: none;
+  height: 50px;
+  border-radius: 5px;
+  background-color: #2196f3;
+  font-weight: 700;
+  color:#fff ;
+  font-family: 'Montserrat',Sans-Serif;
+  width: 150px;
+  font-size: 1.4rem;
+  margin-bottom: 2rem;
+  transition: 0.2s ;
+}
+#btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 7px #9e9e9e;
+}
 
 /* TABLE (TIDAK DIUBAH BANYAK SESUAI NOTE) */
 
