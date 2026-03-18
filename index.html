@@ -22,13 +22,16 @@
       <li>Tabel yang tertera itu menampilkan jumlah orang,username,dan tanggal follow</li>
     
     </ol>
-    <p>follow ig @gweh_jamin</p>
+    <p>follow ig @gwehj_amin</p>
   </div>
   <div class="area">
   <ion-icon name="file-tray" id="filetray"></ion-icon>
   <label for="inputFile" class="input"><span>Klik</span> untuk memasukan file .zip</label>
   <input type="file" id="inputFile" style="display:none;"></div>
-  <button id="btn" onclick="createTabel()">Buat</button>
+  <button id="btn" onclick="buatTable()">Buat</button>
+
+    <button id="downloadBtn" onclick="tableToCSV()">Download Table</button>
+  <div class="tableContainer">
   <table border="1">
   <thead>
     <th>No</th>
@@ -37,7 +40,7 @@
   </thead>
   <tbody id="output">
    
-  </tbody>
+  </tbody></div>
 </table>
 
   
