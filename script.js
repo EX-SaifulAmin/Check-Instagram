@@ -7,6 +7,7 @@ let output = document.getElementById('output');
 let selectedFiles = null
 fileInput.addEventListener("change", async function(){
   selectedFiles = this.files[0]
+  localStorage.setItem("notFollowBack", JSON.stringify(data2))
   console.log('siap diproses')
 })
 async function buatTable() {
@@ -52,15 +53,15 @@ dataFollowing.relationships_following.reverse().forEach((name) => {
     
     let tdAction = document.createElement('td')
     let btn = document.createElement('button')
-    btn.textContent = "Copy"
+    btn.innerHTML = '<ion-icon id="copy" name="copy"></ion-icon>'
     btn.style.cursor = "pointer"
     tdAccount.appendChild(btn)
     btn.addEventListener("click", () => {
   navigator.clipboard.writeText(name.title)
     .then(() => {
-      btn.textContent = "Copied! ✅"
+      btn.innerHTML = "✅"
       setTimeout(()=>{
-        btn.textContent = "Copy"
+        btn.innerHTML = '<ion-icon id="copy" name="copy"></ion-icon>'
       },1500)
     })
 })
@@ -69,17 +70,70 @@ dataFollowing.relationships_following.reverse().forEach((name) => {
     tr.appendChild(tdNo)
     tr.appendChild(tdAccount)
     tr.appendChild(tdDate)
-  
-
     output.appendChild(tr)
-
     data2.push(name)
+    
   }
 })
-    
-    
       console.log(data2)
+  localStorage.setItem("notFollowBack", JSON.stringify(data2))
 }
+window.addEventListener("load", function(){
+
+  const saved = localStorage.getItem("notFollowBack")
+
+  if(saved){
+    const data = JSON.parse(saved)
+
+    output.innerHTML = ""
+
+    data.forEach((name, index) => {
+
+      let tr = document.createElement('tr')
+
+      let tdNo = document.createElement('td')
+      tdNo.textContent = index + 1
+
+      let tdAccount = document.createElement('td')
+      tdAccount.textContent = name.title
+
+      let tdDate = document.createElement('td')
+      tdDate.textContent = new Date(
+        name.string_list_data[0].timestamp * 1000
+      ).toLocaleString('id-ID', {
+        timeZone: 'Asia/Jakarta',
+        hour12: false
+      })
+
+      // tombol copy juga harus dibuat ulang
+      let tdAction = document.createElement('td')
+      let btn = document.createElement('button')
+      btn.innerHTML = '<ion-icon id="copy" name="copy"></ion-icon>'
+
+      btn.addEventListener("click", () => {
+        navigator.clipboard.writeText(name.title)
+      })
+      btn.addEventListener("click", () => {
+  navigator.clipboard.writeText(name.title)
+    .then(() => {
+      btn.innerHTML = "✅"
+      setTimeout(()=>{
+        btn.innerHTML = '<ion-icon id="copy"  name="copy"></ion-icon>'
+      },1500)
+    })
+})
+      tdAccount.appendChild(btn)
+
+      tr.appendChild(tdNo)
+      tr.appendChild(tdAccount)
+      tr.appendChild(tdDate)
+      
+
+      output.appendChild(tr)
+    })
+  }
+
+})
 
 
 function tableToCSV(){
