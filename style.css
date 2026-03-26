@@ -142,7 +142,24 @@ body{
   font-size: 0.9rem;
   transition: 0.2s ;
 }
-
+.Delete {
+  display: flex;
+  justify-content: center;
+  margin: 2rem;
+}
+#Delete {
+  display: none;
+  border: none;
+  height: 25px;
+  border-radius: 2px;
+  background-color: #2196f3;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color:#fff ;
+  font-family: 'Montserrat',Sans-Serif;
+  width: 150px;
+  font-size: 0.9rem;
+}
 
 
 .tableContainer {
@@ -154,6 +171,7 @@ table{
   font-family:Arial, Helvetica, sans-serif;
   
   margin-right: 5px;
+  border: none;
   border-collapse:collapse;
   width:100%;
   

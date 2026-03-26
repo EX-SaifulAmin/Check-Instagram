@@ -4,6 +4,7 @@
 // }
 const fileInput = document.getElementById("inputFile");
 let output = document.getElementById('output');
+let delBtn = document.getElementById('Delete');
 let selectedFiles = null
 fileInput.addEventListener("change", async function(){
   selectedFiles = this.files[0]
@@ -65,8 +66,8 @@ dataFollowing.relationships_following.reverse().forEach((name) => {
       },1500)
     })
 })
-
     
+
     tr.appendChild(tdNo)
     tr.appendChild(tdAccount)
     tr.appendChild(tdDate)
@@ -77,6 +78,12 @@ dataFollowing.relationships_following.reverse().forEach((name) => {
 })
       console.log(data2)
   localStorage.setItem("notFollowBack", JSON.stringify(data2))
+  
+  if(data2.length > 0){
+  delBtn.style.display = "inline-block"
+} else {
+  delBtn.style.display = "none"
+}
 }
 window.addEventListener("load", function(){
 
@@ -84,6 +91,8 @@ window.addEventListener("load", function(){
 
   if(saved){
     const data = JSON.parse(saved)
+
+  delBtn.style.display = "inline-block"
 
     output.innerHTML = ""
 
@@ -132,7 +141,6 @@ window.addEventListener("load", function(){
       output.appendChild(tr)
     })
   }
-
 })
 
 
@@ -168,6 +176,13 @@ const fileName = `not_follow_back_${now.getFullYear()}-${now.getMonth()+1}-${now
   a.href = url
   a.click()
 }
-
-
+// tombol hapus table 
+function Delete() {
+  let table = document.getElementById('output')
+  if(confirm('Apa anda yakin ingin menghapus table? ')) {
+    delBtn.style.display ="none"
+    localStorage.removeItem("notFollowBack")
+    table.innerHTML =''
+  }
+}
 
