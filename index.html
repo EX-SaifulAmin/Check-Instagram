@@ -7,7 +7,7 @@
     <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>   
     <link rel="stylesheet" href="style.css">
-  <title>Document</title>
+  <title>Check Instagram Moots</title>
 </head>
 <body>
   <nav class="nav">
@@ -17,7 +17,7 @@
   <div class="help">
     <h3>Cara pakenya</h3>
     <ol>
-      <li>Pertama kalian harus export informasi akun ig kalian, klik jika belum tahu caranya <a href="">cara export data</a><span> Note : </span> <ul><li>pastikan bagian followers dan following di checklist</li><li>export dalam bentuk .json bukan .html</li></ul></li>
+      <li>Pertama kalian harus export informasi akun ig kalian, klik jika belum tahu caranya <a href="">cara export data</a><span> Note : </span> <ul><li>pastikan bagian followers dan following di[...]
       <li>Masukan file .zip kebagian kolom input file</li>
       <li>Tabel yang tertera itu menampilkan jumlah orang,username,dan tanggal follow</li>
     
@@ -25,27 +25,42 @@
     <p>follow ig @gwehj_amin</p>
   </div>
   <div class="area">
-  <ion-icon name="file-tray" id="filetray"></ion-icon>
-  <label for="inputFile" class="input"><span>Klik</span> untuk memasukan file .zip</label>
-  <input type="file" id="inputFile" style="display:none;"></div>
+    <ion-icon name="file-tray" id="filetray"></ion-icon>
+    <label for="inputFile" class="input"><span>Klik</span> untuk memasukan file .zip</label>
+    <input type="file" id="inputFile" style="display:none;">
+  </div>
+  
   <button id="btn" onclick="buatTable()">Buat</button>
+  <button id="downloadBtn" onclick="tableToCSV()">Download Table</button>
 
-    <button id="downloadBtn" onclick="tableToCSV()">Download Table</button>
+  <!-- FILE SELECTOR MENU -->
+  <div class="fileSelector">
+    <label for="fileMenu">Pilih File Tersimpan:</label>
+    <select id="fileMenu" onchange="loadFileFromStorage()">
+      <option value="">-- Pilih File --</option>
+    </select>
+    <button id="deleteFileBtn" onclick="deleteSelectedFile()" style="display: none; background-color: #ff9800;">
+      <ion-icon name="trash"></ion-icon> Hapus File
+    </button>
+  </div>
+
   <div class="tableContainer">
-  <table border="1">
-  <thead>
-    <th>No</th>
-    <th>Account</th>
-    <th>Date</th>
-  </thead>
-  <tbody id="output">
-   
-  </tbody></div>
-</table>
-<div class="Delete">
-<button id="Delete" onclick="Delete()">Hapus table</button></div>
-  
-  
+    <table border="1">
+      <thead>
+        <tr>
+          <th>No</th>
+          <th>Account</th>
+          <th>Date</th>
+        </tr>
+      </thead>
+      <tbody id="output">
+      </tbody>
+    </table>
+  </div>
+
+  <div class="Delete">
+    <button id="Delete" onclick="Delete()" style="display: none;">Hapus Semua Data</button>
+  </div>
 
   <script src="script.js"></script>
 </body>
