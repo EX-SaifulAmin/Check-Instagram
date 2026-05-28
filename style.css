@@ -220,3 +220,13 @@ th{
   background-color:#2196f3;
   color:white;
 }
+
+#deleteFileBtn {
+  display: block;
+  margin: 8px auto 2rem auto;
+  background-color: #2196f3;
+  font-size: 1rem;
+  color: #fff;
+  border-radius: 0.5rem;
+  border: none;
+}
